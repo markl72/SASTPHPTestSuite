@@ -11,6 +11,20 @@ $db = "insecureapp";
 $userid = $_POST["userid"];
 $password = $_POST["password"];
 
+// Validation
+try{
+	if(!preg_match("/^[0-9]{3}$/", $userid)){
+		throw new Exception("Invalid userid");
+	}
+	if(!preg_match("/^[0-9]{4}$/", $password)){
+		throw new Exception("Invalid password format");
+	}
+}
+
+catch(Exception $e) {
+  echo 'Message: ' .$e->getMessage();
+}
+
 $conn = new mysqli($dbserver, $dbuserid, $dbpassword, $db);
 
 if ($conn->connect_error) {

@@ -8,8 +8,8 @@ $dbuserid = "insecureapp";
 $dbpassword = "45EUlZOpL7";
 $db = "insecureapp";
 
-$userid = $_POST["userid"];
-$password = $_POST["password"];
+$userid = $_POST["userid"] ?? "";
+$password = $_POST["password"] ?? "";
 
 $conn = new mysqli($dbserver, $dbuserid, $dbpassword, $db);
 
